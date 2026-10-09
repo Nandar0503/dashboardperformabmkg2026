@@ -290,7 +290,75 @@ canvas{max-width:100%;}
 .highlight-tile.spike .h-value{color:var(--status-critical);}
 .highlight-tile .h-share{font-size:10.5px;color:var(--text-secondary);font-weight:600;}
 .highlight-tile .h-sub{font-size:9.5px;color:var(--text-muted);margin-top:2px;}
+
+/* ---------- LIVE BMKG (gempa & cuaca realtime) ---------- */
+.live-row{grid-template-columns:1fr 1.2fr 1.25fr;}
+.live-row>.card{min-width:0;}
+@media (max-width:1300px){.live-row{grid-template-columns:1fr;}}
+.live-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:11.5px;color:var(--text-secondary);}
+.live-status{display:inline-flex;align-items:center;gap:6px;font-weight:700;}
+.live-status .dot{width:8px;height:8px;border-radius:50%;background:var(--text-muted);}
+.live-status.ok .dot{background:#0ca30c;box-shadow:0 0 0 3px rgba(12,163,12,.18);animation:livePulse 2s infinite;}
+.live-status.err .dot{background:var(--status-critical);}
+.live-status.load .dot{background:var(--status-warning);}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 3px rgba(12,163,12,.18);}50%{box-shadow:0 0 0 6px rgba(12,163,12,.05);}}
+.live-btn{border:1px solid var(--border-hair);background:#fff;color:var(--navy-800);font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:8px;cursor:pointer;font-family:inherit;}
+.live-btn:hover{background:var(--sky-050);}
+.quake-hero{display:flex;gap:14px;align-items:center;}
+.quake-mag{flex-shrink:0;width:84px;height:84px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;
+  background:linear-gradient(135deg,#d03b3b,#a8262b);box-shadow:0 8px 20px -10px rgba(208,59,59,.7);}
+.quake-mag.mid{background:linear-gradient(135deg,#eda100,#c97f00);box-shadow:0 8px 20px -10px rgba(217,140,0,.7);}
+.quake-mag.low{background:linear-gradient(135deg,#3987e5,#184f95);box-shadow:0 8px 20px -10px rgba(42,120,214,.7);}
+.quake-mag .m{font-size:30px;font-weight:800;line-height:1;}
+.quake-mag .u{font-size:10px;font-weight:700;opacity:.85;letter-spacing:.06em;margin-top:3px;}
+.quake-where{font-size:13px;font-weight:700;color:var(--navy-900);line-height:1.35;}
+.quake-when{font-size:11.5px;color:var(--text-secondary);margin-top:4px;}
+.quake-felt{font-size:11.5px;color:var(--text-secondary);background:var(--card-bg-soft);border-radius:10px;padding:8px 10px;}
+.quake-felt b{color:var(--navy-900);}
+.shakemap{width:100%;border-radius:10px;border:1px solid var(--border-hair);display:block;cursor:zoom-in;background:var(--card-bg-soft);min-height:60px;}
+.siaga{border-radius:12px;padding:10px 12px;font-size:11.5px;line-height:1.45;border-left:4px solid;}
+.siaga .t{font-weight:800;font-size:12px;letter-spacing:.02em;margin-bottom:2px;}
+.siaga.high{background:var(--status-critical-bg);border-color:var(--status-critical);color:#7a1d1d;}
+.siaga.mid{background:var(--status-warning-bg);border-color:var(--status-warning);color:#6b4500;}
+.siaga.low{background:var(--status-good-bg);border-color:var(--status-good);color:#0b5a0b;}
+.live-tabs{display:flex;gap:4px;background:var(--sky-050);border-radius:9px;padding:3px;align-self:flex-start;}
+.live-tabs button{border:0;background:transparent;font-family:inherit;font-size:11.5px;font-weight:700;color:var(--text-secondary);padding:5px 11px;border-radius:7px;cursor:pointer;}
+.live-tabs button.active{background:#fff;color:var(--navy-800);box-shadow:0 1px 3px rgba(13,40,80,.12);}
+.quake-map{height:250px;border-radius:12px;border:1px solid var(--border-hair);background:var(--card-bg-soft);overflow:hidden;z-index:0;}
+.quake-list{display:flex;flex-direction:column;gap:6px;max-height:265px;overflow:auto;padding-right:2px;}
+.qrow{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:7px 9px;border-radius:10px;background:var(--card-bg-soft);cursor:pointer;}
+.qrow:hover{background:var(--sky-050);}
+.qrow .qm{font-weight:800;font-size:14px;text-align:center;border-radius:8px;padding:5px 0;color:#fff;background:var(--blue-500);}
+.qrow .qm.mid{background:var(--status-warning);} .qrow .qm.high{background:var(--status-critical);}
+.qrow .qw{font-size:11.5px;color:var(--text-primary);font-weight:600;line-height:1.3;}
+.qrow .qs{font-size:10.5px;color:var(--text-muted);margin-top:2px;}
+.qrow .qt{font-size:10.5px;color:var(--text-secondary);text-align:right;white-space:nowrap;}
+.wx-controls{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.wx-controls select,.wx-controls input{border:1px solid var(--border-hair);border-radius:8px;padding:5px 8px;font-size:12px;font-family:inherit;color:var(--text-primary);background:#fff;}
+.wx-controls input{width:120px;}
+.wx-now{display:flex;align-items:center;gap:14px;}
+.wx-now img{width:64px;height:64px;flex-shrink:0;}
+.wx-now .tmp{font-size:34px;font-weight:800;color:var(--navy-900);line-height:1;}
+.wx-now .desc{font-size:13px;font-weight:700;color:var(--navy-800);margin-top:4px;}
+.wx-now .loc{font-size:11px;color:var(--text-muted);margin-top:2px;}
+.wx-strip{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;}
+.wx-cell{flex:0 0 66px;background:var(--card-bg-soft);border-radius:10px;padding:7px 4px;text-align:center;}
+.wx-cell .h{font-size:10px;font-weight:700;color:var(--text-muted);}
+.wx-cell img{width:30px;height:30px;display:block;margin:3px auto;}
+.wx-cell .v{font-size:13px;font-weight:800;color:var(--navy-900);}
+.wx-cell .s{font-size:9px;color:var(--text-muted);line-height:1.2;margin-top:2px;min-height:22px;}
+.live-attrib{font-size:10.5px;color:var(--text-muted);}
+.live-attrib a{color:var(--blue-500);}
+.live-err{font-size:11.5px;color:#7a1d1d;background:var(--status-critical-bg);border-radius:10px;padding:9px 11px;}
+.live-skel{background:linear-gradient(90deg,var(--card-bg-soft),#e8eff8,var(--card-bg-soft));background-size:200% 100%;animation:skel 1.4s infinite;border-radius:10px;}
+@keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.live-modal{position:fixed;inset:0;background:rgba(10,31,61,.75);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;cursor:zoom-out;}
+.live-modal.open{display:flex;}
+.live-modal img{max-width:min(900px,96vw);max-height:92vh;border-radius:12px;background:#fff;}
+@media (max-width:700px){.wx-controls input{width:100px;}.quake-mag{width:70px;height:70px;}.quake-mag .m{font-size:24px;}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 <div class="shell">
@@ -330,6 +398,47 @@ canvas{max-width:100%;}
 
   <div class="section-title"><div class="bar"></div><h2>Sorotan Kategori Interaksi Tertinggi — Meteorologi · Klimatologi · Geofisika · Geologi</h2><div class="line"></div></div>
   <div class="card" id="cardHighlight"></div>
+
+  <div class="section-title"><div class="bar"></div><h2>Live Monitoring BMKG — Gempa Bumi &amp; Cuaca Realtime</h2><div class="line"></div></div>
+  <div class="card" style="padding:10px 18px;margin-bottom:16px;">
+    <div class="live-toolbar">
+      <span class="live-status load" id="liveStatus"><span class="dot"></span><span id="liveStatusTxt">Menghubungkan ke API BMKG…</span></span>
+      <span id="liveUpdated">—</span>
+      <span style="flex:1"></span>
+      <span id="liveNext"></span>
+      <button class="live-btn" id="liveRefresh" type="button">↻ Perbarui sekarang</button>
+    </div>
+  </div>
+  <div class="row3 live-row" id="liveRow">
+    <div class="card" id="cardQuakeLatest">
+      <div class="card-head"><h3>Gempa Terbaru</h3><span class="card-tag">autogempa · realtime</span></div>
+      <div id="quakeLatestBody"><div class="live-skel" style="height:220px;"></div></div>
+    </div>
+    <div class="card" id="cardQuakeList">
+      <div class="card-head"><h3>Peta &amp; Daftar Gempa Terkini</h3>
+        <div class="live-tabs" id="quakeTabs">
+          <button type="button" data-k="felt" class="active">Dirasakan</button>
+          <button type="button" data-k="m5">M 5.0+</button>
+        </div>
+      </div>
+      <div class="quake-map" id="quakeMap"></div>
+      <div class="quake-list" id="quakeList"><div class="live-skel" style="height:120px;"></div></div>
+    </div>
+    <div class="card" id="cardWeather">
+      <div class="card-head"><h3>Prakiraan Cuaca Realtime</h3><span class="card-tag">per kelurahan · 3 hari</span></div>
+      <div class="wx-controls">
+        <select id="wxSelect" aria-label="Pilih lokasi"></select>
+        <input id="wxCode" placeholder="Kode adm4" aria-label="Kode wilayah adm4">
+        <button class="live-btn" id="wxGo" type="button">Tampilkan</button>
+      </div>
+      <div id="wxBody"><div class="live-skel" style="height:90px;"></div></div>
+      <div class="wx-strip" id="wxStrip"></div>
+      <div class="chart-box" style="height:130px;"><canvas id="wxChart"></canvas></div>
+      <div class="tooltip-cap">Kode adm4 (kelurahan/desa) dapat dicari di <a href="https://www.bmkg.go.id/cuaca/prakiraan-cuaca" target="_blank" rel="noopener">bmkg.go.id/cuaca/prakiraan-cuaca</a>, contoh 34.71.03.1002 (Kotabaru, Yogyakarta).</div>
+    </div>
+  </div>
+  <div class="live-attrib" style="margin-top:8px;">Sumber data live: <b>BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)</b> — <a href="https://data.bmkg.go.id" target="_blank" rel="noopener">data.bmkg.go.id</a> (gempa bumi) &amp; api.bmkg.go.id (prakiraan cuaca). Gempa diperbarui otomatis tiap 5 menit, cuaca tiap 30 menit. Panel ini tidak mengikuti filter tanggal di atas.</div>
+  <div class="live-modal" id="liveModal"><img id="liveModalImg" alt="Shakemap gempa BMKG"></div>
 
   <div class="section-title"><div class="bar"></div><h2>Overall Performance · Contact Volume Trend · Service Performance</h2><div class="line"></div></div>
   <div class="row3">
@@ -23835,5 +23944,312 @@ if(document.readyState==='loading'){
 } else { init(); }
 })();
 </script>
+<script>
+/* ================= LIVE BMKG: Gempa & Cuaca Realtime =================
+   Sumber: API publik BMKG (wajib mencantumkan BMKG sebagai sumber).
+   - Gempa : https://data.bmkg.go.id/DataMKG/TEWS/{autogempa|gempaterkini|gempadirasakan}.json
+   - Cuaca : https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4={kode}
+   Jika browser memblokir permintaan langsung (CORS / jaringan), modul
+   mencoba ulang lewat proxy CORS publik sebagai cadangan. */
+(function(){
+"use strict";
+var TEWS = 'https://data.bmkg.go.id/DataMKG/TEWS/';
+var WX_API = 'https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=';
+var PROXIES = [
+  function(u){ return 'https://api.allorigins.win/raw?url='+encodeURIComponent(u); },
+  function(u){ return 'https://corsproxy.io/?url='+encodeURIComponent(u); }
+];
+var QUAKE_EVERY = 5*60*1000, WX_EVERY = 30*60*1000;
+var WX_PRESETS = [
+  {code:'31.71.03.1001', label:'Kemayoran, Jakarta Pusat (Kantor Pusat BMKG)'},
+  {code:'31.71.01.1001', label:'Gambir, Jakarta Pusat'},
+  {code:'34.71.03.1002', label:'Kotabaru, Kota Yogyakarta'},
+  {code:'51.71.03.1005', label:'Dauh Puri, Denpasar'}
+];
+var LS_KEY = 'bmkgDash.wxCode';
+var D = window.DASHBOARD_DATA || {};
+var state = {quakeTab:'felt', felt:[], m5:[], latest:null, map:null, layer:null, lastQuake:null, lastWx:null, nextQuake:0, viaProxy:false, wxChart:null};
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+function num(v){ var n=parseFloat(String(v).replace(',','.')); return isNaN(n)?null:n; }
+function magClass(m){ return m>=5.5?'high':(m>=4.5?'mid':'low'); }
+function timeoutFetch(url, ms){
+  var ctl = ('AbortController' in window) ? new AbortController() : null;
+  var t = setTimeout(function(){ if(ctl) ctl.abort(); }, ms);
+  return fetch(url, {cache:'no-store', signal: ctl?ctl.signal:undefined}).then(function(r){
+    clearTimeout(t); if(!r.ok) throw new Error('HTTP '+r.status); return r.json();
+  }, function(e){ clearTimeout(t); throw e; });
+}
+function getJSON(url){
+  var attempts = [function(){ return timeoutFetch(url, 12000); }]
+    .concat(PROXIES.map(function(p){ return function(){ return timeoutFetch(p(url), 15000).then(function(j){ state.viaProxy=true; return j; }); }; }));
+  var i = 0;
+  function next(err){
+    if(i>=attempts.length) return Promise.reject(err||new Error('gagal'));
+    var f = attempts[i++];
+    return f().catch(next);
+  }
+  return next();
+}
+function ago(iso){
+  var t = Date.parse(iso); if(isNaN(t)) return '';
+  var m = Math.round((Date.now()-t)/60000);
+  if(m<1) return 'baru saja';
+  if(m<60) return m+' menit lalu';
+  var h = Math.round(m/60); if(h<48) return h+' jam lalu';
+  return Math.round(h/24)+' hari lalu';
+}
+function hoursSince(iso){ var t=Date.parse(iso); return isNaN(t)?1e9:(Date.now()-t)/3600000; }
+function clock(d){ return d.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'}); }
+var ROMAN = {I:1,II:2,III:3,IV:4,V:5,VI:6,VII:7,VIII:8,IX:9,X:10,XI:11,XII:12};
+function maxMMI(txt){
+  var best = 0, m, re = /\b(XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)\b/g;
+  txt = String(txt||'');
+  while((m = re.exec(txt))){ if(ROMAN[m[1]]>best) best = ROMAN[m[1]]; }
+  return best;
+}
+function setStatus(cls, txt){
+  var el = $('liveStatus'); el.className = 'live-status '+cls; $('liveStatusTxt').textContent = txt;
+}
+
+/* ---------- historical reference from the dashboard's own ticket data ---------- */
+function historicRef(){
+  var rows = (D.highlights && D.highlights.daily) || [];
+  var top = rows.slice().sort(function(a,b){return b.gempa_dirasakan-a.gempa_dirasakan;}).slice(0,3);
+  var big = rows.filter(function(r){return r.gempa_dirasakan>=1000;});
+  var avg = big.length ? Math.round(big.reduce(function(a,b){return a+b.gempa_dirasakan;},0)/big.length) : 0;
+  var fmt = function(n){return Math.round(n).toLocaleString('id-ID');};
+  var dd = function(s){return new Date(s+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'short'});};
+  return {txt: top.map(function(r){return dd(r.date)+' ('+fmt(r.gempa_dirasakan)+' tiket)';}).join(', '), avg: fmt(avg), n: big.length};
+}
+
+/* ---------- Gempa ---------- */
+function renderLatest(g){
+  var body = $('quakeLatestBody');
+  if(!g){ body.innerHTML = '<div class="live-err">Data gempa terbaru belum dapat dimuat.</div>'; return; }
+  var M = num(g.Magnitude)||0;
+  var felt = g.Dirasakan && g.Dirasakan!=='-' ? g.Dirasakan : '';
+  var mmi = maxMMI(felt), age = hoursSince(g.DateTime);
+  var lvl, title, msg, ref = historicRef();
+  if(age<=24 && (mmi>=4 || (M>=5 && felt))){ lvl='high'; title='SIAGA TINGGI — potensi lonjakan tiket'; }
+  else if(age<=24 && (felt || M>=5)){ lvl='mid'; title='WASPADA — pantau antrean kanal'; }
+  else { lvl='low'; title='NORMAL — tidak ada gempa signifikan 24 jam terakhir'; }
+  msg = lvl==='low' ? 'Gempa terbaru terjadi '+ago(g.DateTime)+'. Kapasitas agent normal.'
+    : 'Gempa '+(felt?'dirasakan ':'')+'M'+M.toFixed(1)+' '+ago(g.DateTime)+'. Riwayat: lonjakan kategori "Gempabumi Dirasakan" tertinggi terjadi '+ref.txt+'; rata-rata '+ref.avg+' tiket/hari pada '+ref.n+' hari lonjakan (≥1.000 tiket). Siapkan template jawaban & tambahan agent di WhatsApp/IG.';
+  var shake = g.Shakemap ? TEWS+encodeURIComponent(g.Shakemap) : '';
+  body.innerHTML =
+    '<div style="display:flex;flex-direction:column;gap:10px;">'+
+      '<div class="quake-hero">'+
+        '<div class="quake-mag '+magClass(M)+'"><div class="m">'+esc(M.toFixed(1))+'</div><div class="u">MAGNITUDO</div></div>'+
+        '<div><div class="quake-where">'+esc(g.Wilayah)+'</div>'+
+        '<div class="quake-when">'+esc(g.Tanggal)+' · '+esc(g.Jam)+' · <b>'+esc(ago(g.DateTime))+'</b></div>'+
+        '<div class="quake-when">Kedalaman '+esc(g.Kedalaman)+' · '+esc(g.Lintang)+', '+esc(g.Bujur)+'</div></div>'+
+      '</div>'+
+      (g.Potensi ? '<div class="quake-felt"><b>Potensi:</b> '+esc(g.Potensi)+'</div>' : '')+
+      (felt ? '<div class="quake-felt"><b>Dirasakan (MMI):</b> '+esc(felt)+'</div>' : '')+
+      '<div class="siaga '+lvl+'"><div class="t">'+title+'</div>'+esc(msg)+'</div>'+
+      (shake ? '<img class="shakemap" id="shakeImg" src="'+shake+'" alt="Shakemap '+esc(g.Wilayah)+'" loading="lazy">' +
+               '<div class="tooltip-cap" id="shakeCap" style="margin-top:0;">Shakemap BMKG — klik untuk memperbesar.</div>' : '')+
+    '</div>';
+  var img = $('shakeImg');
+  if(img){
+    img.addEventListener('click', function(){ $('liveModalImg').src = img.src; $('liveModal').classList.add('open'); });
+    img.addEventListener('error', function(){ img.style.display='none'; var c=$('shakeCap'); if(c) c.style.display='none'; });
+  }
+}
+function parseCoord(g){
+  var c = String(g.Coordinates||'').split(',');
+  var lat = num(c[0]), lon = num(c[1]);
+  return (lat==null||lon==null) ? null : [lat,lon];
+}
+function initMap(){
+  if(state.map || !window.L) return;
+  state.map = L.map('quakeMap', {zoomControl:true, attributionControl:true, scrollWheelZoom:false}).setView([-2.5,118],4);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:10, attribution:'&copy; OpenStreetMap · Data gempa: BMKG'}).addTo(state.map);
+  state.layer = L.layerGroup().addTo(state.map);
+}
+function renderQuakeList(){
+  var list = state.quakeTab==='felt' ? state.felt : state.m5;
+  var el = $('quakeList');
+  if(!list.length){ el.innerHTML = '<div class="live-err">Daftar gempa belum dapat dimuat.</div>'; }
+  else el.innerHTML = list.map(function(g,i){
+    var M = num(g.Magnitude)||0;
+    var sub = state.quakeTab==='felt' ? ('Dirasakan: '+(g.Dirasakan||'-')) : (g.Potensi||'');
+    return '<div class="qrow" data-i="'+i+'">'+
+      '<div class="qm '+magClass(M)+'">'+esc(M.toFixed(1))+'</div>'+
+      '<div><div class="qw">'+esc(g.Wilayah)+'</div><div class="qs">'+esc(sub)+' · kedalaman '+esc(g.Kedalaman)+'</div></div>'+
+      '<div class="qt">'+esc(g.Tanggal)+'<br>'+esc(g.Jam)+'<br><b>'+esc(ago(g.DateTime))+'</b></div>'+
+    '</div>';
+  }).join('');
+  // map
+  if(!window.L){
+    $('quakeMap').innerHTML = '<div class="live-err" style="margin:10px;">Peta tidak dapat dimuat (pustaka peta tidak tersedia). Daftar gempa tetap tampil di bawah.</div>';
+    return;
+  }
+  initMap();
+  state.layer.clearLayers();
+  var markers = [];
+  list.forEach(function(g,i){
+    var ll = parseCoord(g); if(!ll) return;
+    var M = num(g.Magnitude)||0;
+    var col = M>=5.5?'#d03b3b':(M>=4.5?'#d98c00':'#2a78d6');
+    var mk = L.circleMarker(ll, {radius: Math.max(4, M*2.2), color:col, weight:1.5, fillColor:col, fillOpacity:.45})
+      .bindPopup('<b>M'+esc(M.toFixed(1))+'</b> · '+esc(g.Tanggal)+' '+esc(g.Jam)+'<br>'+esc(g.Wilayah)+'<br>Kedalaman '+esc(g.Kedalaman)+
+        (g.Dirasakan?'<br>Dirasakan: '+esc(g.Dirasakan):'')+(g.Potensi?'<br>'+esc(g.Potensi):''));
+    mk.addTo(state.layer); markers[i]=mk;
+  });
+  var lt = state.latest && parseCoord(state.latest);
+  if(lt){
+    L.circleMarker(lt,{radius:14,color:'#d03b3b',weight:2.5,fill:false,dashArray:'3 3'}).bindTooltip('Gempa terbaru').addTo(state.layer);
+  }
+  Array.prototype.forEach.call(el.querySelectorAll('.qrow'), function(r){
+    r.addEventListener('click', function(){
+      var mk = markers[+r.dataset.i]; if(mk){ state.map.setView(mk.getLatLng(), 6); mk.openPopup(); }
+    });
+  });
+  setTimeout(function(){ state.map.invalidateSize(); }, 50);
+}
+function loadQuakes(){
+  return Promise.allSettled([
+    getJSON(TEWS+'autogempa.json'),
+    getJSON(TEWS+'gempadirasakan.json'),
+    getJSON(TEWS+'gempaterkini.json')
+  ]).then(function(res){
+    var ok = 0;
+    if(res[0].status==='fulfilled'){ ok++; state.latest = res[0].value && res[0].value.Infogempa && res[0].value.Infogempa.gempa; }
+    if(res[1].status==='fulfilled'){ ok++; state.felt = [].concat((res[1].value.Infogempa||{}).gempa||[]); }
+    if(res[2].status==='fulfilled'){ ok++; state.m5 = [].concat((res[2].value.Infogempa||{}).gempa||[]); }
+    renderLatest(state.latest);
+    renderQuakeList();
+    state.lastQuake = new Date();
+    return ok;
+  });
+}
+
+/* ---------- Cuaca ---------- */
+function flatWx(json){
+  var d = json && json.data && json.data[0];
+  var arr = [];
+  ((d && d.cuaca)||[]).forEach(function(day){ (day||[]).forEach(function(x){ arr.push(x); }); });
+  arr.sort(function(a,b){ return String(a.local_datetime).localeCompare(String(b.local_datetime)); });
+  var loc = (json && json.lokasi) || (d && d.lokasi) || {};
+  return {list:arr, loc:loc};
+}
+function wxTime(s){ var p = String(s||'').split(' '); return {d:p[0]||'', h:(p[1]||'').slice(0,5)}; }
+function wxDay(s){ var d = new Date(String(s).replace(' ','T')); return isNaN(d)?'':d.toLocaleDateString('id-ID',{weekday:'short',day:'numeric',month:'short'}); }
+function renderWx(json, code){
+  var w = flatWx(json), list = w.list, loc = w.loc;
+  if(!list.length){ $('wxBody').innerHTML = '<div class="live-err">Tidak ada data prakiraan untuk kode '+esc(code)+'. Periksa kode adm4.</div>'; $('wxStrip').innerHTML=''; return; }
+  var now = Date.now(), cur = list[0];
+  list.forEach(function(x){ var t = Date.parse(String(x.local_datetime).replace(' ','T')); if(!isNaN(t) && t<=now) cur = x; });
+  var place = [loc.desa, loc.kecamatan, loc.kotkab, loc.provinsi].filter(Boolean).join(', ');
+  $('wxBody').innerHTML =
+    '<div class="wx-now">'+
+      (cur.image ? '<img src="'+esc(cur.image)+'" alt="" onerror="this.style.display=\'none\'">' : '')+
+      '<div><div class="tmp">'+esc(cur.t)+'°C</div><div class="desc">'+esc(cur.weather_desc)+'</div>'+
+      '<div class="loc">📍 '+esc(place||code)+' · berlaku '+esc(wxTime(cur.local_datetime).h)+' WIB</div></div>'+
+    '</div>'+
+    '<div class="mini-grid" style="margin-top:8px;">'+
+      '<div class="mini-stat"><div class="ms-label">Kelembapan</div><div class="ms-value">'+esc(cur.hu)+'%</div></div>'+
+      '<div class="mini-stat"><div class="ms-label">Angin</div><div class="ms-value">'+esc(cur.ws)+' <span style="font-size:10px">km/j</span></div></div>'+
+      '<div class="mini-stat"><div class="ms-label">Arah dari</div><div class="ms-value">'+esc(cur.wd||'-')+'</div></div>'+
+      '<div class="mini-stat"><div class="ms-label">Jarak Pandang</div><div class="ms-value" style="font-size:12.5px">'+esc(cur.vs_text||'-')+'</div></div>'+
+    '</div>';
+  var upcoming = list.filter(function(x){ var t=Date.parse(String(x.local_datetime).replace(' ','T')); return isNaN(t) || t>=now-3*3600000; }).slice(0,10);
+  $('wxStrip').innerHTML = upcoming.map(function(x){
+    var tt = wxTime(x.local_datetime);
+    return '<div class="wx-cell"><div class="h">'+esc(tt.h)+'</div>'+(x.image?'<img src="'+esc(x.image)+'" alt="" onerror="this.style.visibility=\'hidden\'">':'')+
+      '<div class="v">'+esc(x.t)+'°</div><div class="s">'+esc(x.weather_desc)+'</div></div>';
+  }).join('');
+  if(window.Chart){
+    var ctx = $('wxChart').getContext('2d');
+    if(state.wxChart) state.wxChart.destroy();
+    state.wxChart = new Chart(ctx, {
+      data:{labels:list.map(function(x){ var tt=wxTime(x.local_datetime); return [tt.h, tt.h==='00:00'||x===list[0]?wxDay(x.local_datetime):'']; }),
+        datasets:[
+          {type:'line', label:'Suhu (°C)', data:list.map(function(x){return +x.t;}), borderColor:'#eb6834', backgroundColor:'rgba(235,104,52,.1)', fill:true, tension:.35, pointRadius:0, borderWidth:2, yAxisID:'y'},
+          {type:'bar', label:'Kelembapan (%)', data:list.map(function(x){return +x.hu;}), backgroundColor:'rgba(42,120,214,.22)', borderRadius:2, yAxisID:'y1', maxBarThickness:8}
+        ]},
+      options:{responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
+        plugins:{legend:{position:'top',align:'end',labels:{boxWidth:10,boxHeight:2,font:{size:9.5},color:'#4b5c72'}},
+          tooltip:{callbacks:{title:function(it){ var x=list[it[0].dataIndex]; return wxDay(x.local_datetime)+' '+wxTime(x.local_datetime).h+' — '+x.weather_desc; }}}},
+        scales:{x:{grid:{display:false},ticks:{font:{size:8.5},color:'#8593a6',maxRotation:0,autoSkip:true,maxTicksLimit:9}},
+          y:{position:'left',grid:{color:'#eef3f9'},ticks:{font:{size:9},color:'#eb6834'}},
+          y1:{position:'right',min:0,max:100,grid:{display:false},ticks:{font:{size:9},color:'#2a78d6'}}}}
+    });
+  }
+}
+function loadWx(code){
+  code = (code||'').trim();
+  if(!/^\d{2}\.\d{2}\.\d{2}\.\d{4}$/.test(code)){
+    $('wxBody').innerHTML = '<div class="live-err">Format kode adm4 harus seperti 31.71.03.1001.</div>'; return Promise.resolve(0);
+  }
+  try{ localStorage.setItem(LS_KEY, code); }catch(e){}
+  $('wxCode').value = code;
+  var sel = $('wxSelect'); sel.value = WX_PRESETS.some(function(p){return p.code===code;}) ? code : '';
+  $('wxBody').innerHTML = '<div class="live-skel" style="height:90px;"></div>';
+  return getJSON(WX_API+encodeURIComponent(code)).then(function(j){ renderWx(j, code); state.lastWx=new Date(); return 1; })
+    .catch(function(){ $('wxBody').innerHTML = '<div class="live-err">Prakiraan cuaca tidak dapat dimuat dari API BMKG (jaringan atau batas akses). Coba lagi beberapa saat.</div>'; $('wxStrip').innerHTML=''; return 0; });
+}
+function initWxControls(){
+  var sel = $('wxSelect');
+  sel.innerHTML = WX_PRESETS.map(function(p){return '<option value="'+p.code+'">'+esc(p.label)+'</option>';}).join('')+'<option value="">Kode kustom…</option>';
+  sel.addEventListener('change', function(){ if(sel.value) loadWx(sel.value); else $('wxCode').focus(); });
+  $('wxGo').addEventListener('click', function(){ loadWx($('wxCode').value); });
+  $('wxCode').addEventListener('keydown', function(e){ if(e.key==='Enter') loadWx($('wxCode').value); });
+}
+
+/* ---------- orchestration ---------- */
+function refreshAll(){
+  setStatus('load','Memuat data BMKG…');
+  var code = $('wxCode').value || WX_PRESETS[0].code;
+  return Promise.all([loadQuakes(), loadWx(code)]).then(function(r){
+    var ok = r[0] + r[1];
+    if(ok===0) setStatus('err','Tidak dapat terhubung ke API BMKG');
+    else if(ok<4) setStatus('ok','Live (sebagian data gagal dimuat)');
+    else setStatus('ok','Live · terhubung ke API BMKG'+(state.viaProxy?' (via proxy)':''));
+    $('liveUpdated').textContent = 'Diperbarui '+clock(new Date())+' WIB';
+    state.nextQuake = Date.now()+QUAKE_EVERY;
+  });
+}
+function tick(){
+  if(document.hidden) return;
+  var left = state.nextQuake - Date.now();
+  if(left<=0){
+    setStatus('load','Memperbarui data gempa…');
+    state.nextQuake = Date.now()+QUAKE_EVERY;
+    loadQuakes().then(function(ok){
+      setStatus(ok?'ok':'err', ok?'Live · terhubung ke API BMKG'+(state.viaProxy?' (via proxy)':''):'Tidak dapat terhubung ke API BMKG');
+      $('liveUpdated').textContent = 'Diperbarui '+clock(new Date())+' WIB';
+    });
+    if(!state.lastWx || Date.now()-state.lastWx.getTime() >= WX_EVERY) loadWx($('wxCode').value);
+  } else {
+    var m = Math.floor(left/60000), s = Math.floor(left%60000/1000);
+    $('liveNext').textContent = 'Pembaruan otomatis dalam '+m+':'+(s<10?'0':'')+s;
+  }
+}
+function init(){
+  if(!$('liveRow')) return;
+  initWxControls();
+  var saved = null; try{ saved = localStorage.getItem(LS_KEY); }catch(e){}
+  $('wxCode').value = saved || WX_PRESETS[0].code;
+  Array.prototype.forEach.call($('quakeTabs').children, function(b){
+    b.addEventListener('click', function(){
+      state.quakeTab = b.dataset.k;
+      Array.prototype.forEach.call($('quakeTabs').children, function(x){ x.classList.toggle('active', x===b); });
+      renderQuakeList();
+    });
+  });
+  $('liveRefresh').addEventListener('click', refreshAll);
+  $('liveModal').addEventListener('click', function(){ $('liveModal').classList.remove('open'); });
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden && Date.now()>=state.nextQuake) tick(); });
+  refreshAll();
+  setInterval(tick, 1000);
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
 </body>
 </html>
